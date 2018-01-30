@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package com.gestor.bots.admin.console.servicio;
-
-
-
 import com.gestor.bots.admin.console.dao.EntrenamientoReglaDAO;
 import com.gestor.bots.admin.console.enums.EstadoEntrenamientoReglaEnum;
 import com.gestor.bots.admin.console.model.EntrenamientoRegla;
@@ -20,7 +17,7 @@ import javax.ejb.Stateless;
 
 /**
  *
- * @author Hendrix
+ * @author GA
  */
 @LocalBean
 @Stateless
@@ -31,11 +28,11 @@ public class EntrenamientoReglaService {
     
     public List<EntrenamientoRegla> obtenerTodos() {
         return this.entrenamientoReglaDAO.findAll();
-    }
+    }     
     
     public void crear(EntrenamientoRegla entrenamientoRegla) throws CreacionException {
         try {
-             entrenamientoRegla.setEstado("ACT");
+             entrenamientoRegla.setEstado(EstadoEntrenamientoReglaEnum.ACT);
             this.entrenamientoReglaDAO.insert(entrenamientoRegla);
         } catch (Exception e) {
             throw new CreacionException("ERR100", "Error al crear: "+e.getMessage(), e);

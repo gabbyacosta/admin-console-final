@@ -12,7 +12,7 @@ import javax.ejb.Stateless;
 
 /**
  *
- * @author Gestor
+ * @author GA
  */
 @LocalBean
 @Stateless

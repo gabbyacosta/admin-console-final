@@ -19,6 +19,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -59,9 +61,18 @@ public class EntrenamientoRegla implements Serializable {
     private Integer lineasEntrenamiento;
     
     @Column(name = "ESTADO" , nullable = false , length = 3)
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    private EstadoEntrenamientoReglaEnum estado;
     
     /** Propiedad  regla representa una relación de muchos a uno con la Entidad Regla.*/;
+
+    public void setEstado(EstadoEntrenamientoReglaEnum estado) {
+        this.estado = estado;
+    }
+
+    public EstadoEntrenamientoReglaEnum getEstado() {
+        return estado;
+    }
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "COD_REGLA", referencedColumnName = "COD_REGLA", insertable = false, updatable = false) 
     private Regla regla;
@@ -155,24 +166,7 @@ public class EntrenamientoRegla implements Serializable {
         this.lineasEntrenamiento = lineasEntrenamiento; 
     }
 
-    /** 
-     * Obtiene el valor de la propiedad estado relacionado con la columna ESTADO. 
-     *  
-     * @return el valor asignado a la propiedad estado. 
-     */ 
-    public String getEstado() { 
-        return estado; 
-    } 
-     
-    /** 
-     * Asigna un valor a la propiedad estado, relacionado con la columna ESTADO. 
-     *  
-     * @param estado el valor a ser asignado a la propiedad estado. 
-     */ 
-    public void setEstado(String estado) { 
-        this.estado = estado; 
-    }
-
+   
     /** 
      * Obtiene el valor de la propiedad regla relacionado con la entidad Regla. 
      *  
@@ -224,11 +218,8 @@ public class EntrenamientoRegla implements Serializable {
      */ 
     @Override 
     public String toString() { 
-        return "${CLASS_PK_TS}[pk=" + pk + "]"; 
+        return "ENTRENAMIENTO_REGLA[pk=" + pk + "]"; 
     }     
 
-    public void setEstado(EstadoEntrenamientoReglaEnum estadoEntrenamientoReglaEnum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
 } 

@@ -9,14 +9,14 @@ import com.gestor.bots.admin.console.web.common.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.beanutils.BeanUtils;
 
 /**
  *
- * @author Hendrix
+ * @author GA
  */
 @Named
 @ViewScoped
@@ -24,7 +24,7 @@ public class EntrenamientoReglaBean extends BaseBean implements Serializable {
 
     private static final String ENTIDAD = "Entrenamiento Regla";
     
-    @Inject
+    @EJB
     private EntrenamientoReglaService entrenamientoReglaService;
 
     private List<EntrenamientoRegla> entrenamientoReglaList;
@@ -75,7 +75,7 @@ public class EntrenamientoReglaBean extends BaseBean implements Serializable {
                 FacesUtil.addMessageInfo("Se creo el entrenamiento : " + this.entrenamientoRegla.getPk().getSecuenciaEntrenamiento());
                 super.cancelar();
             } catch (Exception e) {
-                FacesUtil.addMessageError(null, "No se pudo crear el entrenamiento : "+this.entrenamientoRegla);
+                FacesUtil.addMessageError(null, "No se pudo crear el entrenamiento : "+this.entrenamientoRegla+e);
             }
         }
         
