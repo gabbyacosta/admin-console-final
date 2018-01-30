@@ -9,8 +9,8 @@ import com.gestor.bots.admin.console.web.common.FacesUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -24,7 +24,7 @@ public class EntrenamientoReglaBean extends BaseBean implements Serializable {
 
     private static final String ENTIDAD = "Entrenamiento Regla";
     
-    @EJB
+    @Inject
     private EntrenamientoReglaService entrenamientoReglaService;
 
     private List<EntrenamientoRegla> entrenamientoReglaList;
@@ -49,7 +49,7 @@ public class EntrenamientoReglaBean extends BaseBean implements Serializable {
         this.entrenamientoRegla = new EntrenamientoRegla();
         try {
             BeanUtils.copyProperties(this.entrenamientoRegla, this.entrenamientoReglaSel);
-        } catch (Exception ex) {
+        } catch (Exception e) {
             FacesUtil.addMessageError(null, "No se puede modificar  "+ENTIDAD);
         }
     }

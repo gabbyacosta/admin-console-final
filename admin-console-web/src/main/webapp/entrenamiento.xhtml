@@ -23,12 +23,19 @@
                         <p:column headerText="Codigo Regla" sortBy="#{entrenamientoRegla.pk.codigoRegla}">
                             #{entrenamientoRegla.pk.codigoRegla}
                         </p:column>
-                        <p:column headerText="Fecha inicio" >
-                            #{entrenamientoRegla.fechaInicio}
+                        
+                        <p:column headerText="Fecha Creacion" sortBy="#{entrenamientoRegla.fechaInicio}">
+                        <h:outputText   value="#{entrenamientoRegla.fechaInicio}" >                      
+                            <f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
+                        </h:outputText>
                         </p:column>
-                        <p:column headerText="Fecha Fin" >
-                            #{entrenamientoRegla.fechaFin}
-                        </p:column>
+                        
+                         <p:column headerText="Fecha Creacion" sortBy="#{entrenamientoRegla.fechaFin}">
+                        <h:outputText   value="#{entrenamientoRegla.fechaFin}" >                      
+                            <f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
+                        </h:outputText>
+                        </p:column>                        
+                        
                         <p:column headerText="Estado" >
                             #{entrenamientoRegla.estado}
                         </p:column>
