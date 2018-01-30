@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Consola de Administracion de BOTS</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{facesContext.externalContext.requestContextPath}/images/styles.css" rel="stylesheet"/>
+    </h:head>
+    <h:body> 
+        <div id="page">
+
+            <div class="header">
+                <img src="#{facesContext.externalContext.requestContextPath}/images/banner.png" height="100%" class="img-responsive" />
+            </div>
+            <h:form>
+                <p:menubar >
+                    <p:submenu label="Catalogos" icon="fa-pagelines">
+                        <p:menuitem value="Redes Sociales" action="socialMedia" icon="fa-wechat"/>
+                    </p:submenu>
+                    <p:submenu label="Usuarios" icon="fa-users">
+                        <p:menuitem value="Usuarios" action="usuario" icon="fa-user"/>
+                    </p:submenu>
+                    <p:submenu label="Clientes" icon="fa-suitcase">
+                        <p:menuitem value="Clientes" action="cliente" icon="fa-user-plus"/>
+                    </p:submenu>
+                    <p:submenu label="Bots" icon="fa-android">
+                        <p:menuitem value="Bots" action="bots" icon="fa-cube"/>
+                        <p:submenu label="Reglas" icon="fa-android">
+                            <p:menuitem value="Regla" action="regla" icon="fa-cogs"/>                    
+                            <p:menuitem value="Corpus" action="corpus" icon="fa-cogs"/>
+                            <p:menuitem value="Entrenamiento Regla" action="entrenamiento" icon="fa-cogs"/>
+                        </p:submenu>
+                        <p:menuitem value="Sinonimo" action="sinonimo" icon="fa-cogs"/>
+                    </p:submenu>
+                    <f:facet name="options">
+                        <p:menuButton value="#{credencialesBean.user.nombre}" icon="fa-user-md">
+                            <p:menuitem value="Preferencias" url="#" icon="fa-cog"/>
+                            <p:menuitem value="Salir" url="/admin-console-web/index.xhtml" icon="fa-sign-out"/>
+                        </p:menuButton>
+                    </f:facet>
+                </p:menubar>
+            </h:form>    
+            <div id="content">
+                <h:form>
+                    <ui:insert name="contenido">
+
+                    </ui:insert>
+                    <p>&nbsp;</p>
+                </h:form>
+            </div>
+            <div id="footer">
+                <div class="text-center center-block">
+
+                </div>
+                <div class="text-center center-block">
+                    <p class="txt-railway">Copyright © Gestor 2018</p>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
